@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C16C8EC424F6568E003D3FDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16C8EC324F6568E003D3FDC /* AppDelegate.swift */; };
+		C16C8EC624F6568E003D3FDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16C8EC524F6568E003D3FDC /* SceneDelegate.swift */; };
+		C16C8EC824F6568E003D3FDC /* SelectFoodstuffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16C8EC724F6568E003D3FDC /* SelectFoodstuffViewController.swift */; };
+		C16C8ECD24F65690003D3FDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C16C8ECC24F65690003D3FDC /* Assets.xcassets */; };
+		C16C8ED024F65690003D3FDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C16C8ECE24F65690003D3FDC /* LaunchScreen.storyboard */; };
+		C16C8EDF24F65AA3003D3FDC /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C16C8EDB24F65AA2003D3FDC /* RxCocoa.framework */; };
+		C16C8EE024F65AA3003D3FDC /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C16C8EDB24F65AA2003D3FDC /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C16C8EE124F65AA3003D3FDC /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C16C8EDC24F65AA3003D3FDC /* RxRelay.framework */; };
+		C16C8EE224F65AA3003D3FDC /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C16C8EDC24F65AA3003D3FDC /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C16C8EE324F65AA3003D3FDC /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C16C8EDD24F65AA3003D3FDC /* Charts.framework */; };
+		C16C8EE424F65AA3003D3FDC /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C16C8EDD24F65AA3003D3FDC /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C16C8EE524F65AA3003D3FDC /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C16C8EDE24F65AA3003D3FDC /* RxSwift.framework */; };
+		C16C8EE624F65AA3003D3FDC /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C16C8EDE24F65AA3003D3FDC /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C16C8EEA24F65B95003D3FDC /* SelectFoodstuffViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16C8EE924F65B95003D3FDC /* SelectFoodstuffViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C16C8EE724F65AA3003D3FDC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C16C8EE624F65AA3003D3FDC /* RxSwift.framework in Embed Frameworks */,
+				C16C8EE424F65AA3003D3FDC /* Charts.framework in Embed Frameworks */,
+				C16C8EE224F65AA3003D3FDC /* RxRelay.framework in Embed Frameworks */,
+				C16C8EE024F65AA3003D3FDC /* RxCocoa.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C16C8EC024F6568E003D3FDC /* cookpad-internship-2020-summer-pbl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cookpad-internship-2020-summer-pbl.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C16C8EC324F6568E003D3FDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C16C8EC524F6568E003D3FDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C16C8EC724F6568E003D3FDC /* SelectFoodstuffViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFoodstuffViewController.swift; sourceTree = "<group>"; };
+		C16C8ECC24F65690003D3FDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C16C8ECF24F65690003D3FDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C16C8ED124F65690003D3FDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C16C8EDB24F65AA2003D3FDC /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		C16C8EDC24F65AA3003D3FDC /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		C16C8EDD24F65AA3003D3FDC /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
+		C16C8EDE24F65AA3003D3FDC /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		C16C8EE924F65B95003D3FDC /* SelectFoodstuffViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFoodstuffViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C16C8EBD24F6568E003D3FDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C16C8EE524F65AA3003D3FDC /* RxSwift.framework in Frameworks */,
+				C16C8EE324F65AA3003D3FDC /* Charts.framework in Frameworks */,
+				C16C8EE124F65AA3003D3FDC /* RxRelay.framework in Frameworks */,
+				C16C8EDF24F65AA3003D3FDC /* RxCocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C16C8EB724F6568E003D3FDC = {
+			isa = PBXGroup;
+			children = (
+				C16C8EC224F6568E003D3FDC /* cookpad-internship-2020-summer-pbl */,
+				C16C8EC124F6568E003D3FDC /* Products */,
+				C16C8EDA24F65AA2003D3FDC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C16C8EC124F6568E003D3FDC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C16C8EC024F6568E003D3FDC /* cookpad-internship-2020-summer-pbl.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C16C8EC224F6568E003D3FDC /* cookpad-internship-2020-summer-pbl */ = {
+			isa = PBXGroup;
+			children = (
+				C16C8ED724F656BA003D3FDC /* App */,
+				C16C8ED824F656C3003D3FDC /* Views */,
+				C16C8ECC24F65690003D3FDC /* Assets.xcassets */,
+				C16C8ECE24F65690003D3FDC /* LaunchScreen.storyboard */,
+				C16C8ED124F65690003D3FDC /* Info.plist */,
+			);
+			path = "cookpad-internship-2020-summer-pbl";
+			sourceTree = "<group>";
+		};
+		C16C8ED724F656BA003D3FDC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C16C8EC324F6568E003D3FDC /* AppDelegate.swift */,
+				C16C8EC524F6568E003D3FDC /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C16C8ED824F656C3003D3FDC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C16C8EE824F65B70003D3FDC /* SelectFoodstuff */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C16C8EDA24F65AA2003D3FDC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C16C8EDD24F65AA3003D3FDC /* Charts.framework */,
+				C16C8EDB24F65AA2003D3FDC /* RxCocoa.framework */,
+				C16C8EDC24F65AA3003D3FDC /* RxRelay.framework */,
+				C16C8EDE24F65AA3003D3FDC /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C16C8EE824F65B70003D3FDC /* SelectFoodstuff */ = {
+			isa = PBXGroup;
+			children = (
+				C16C8EC724F6568E003D3FDC /* SelectFoodstuffViewController.swift */,
+				C16C8EE924F65B95003D3FDC /* SelectFoodstuffViewModel.swift */,
+			);
+			path = SelectFoodstuff;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C16C8EBF24F6568E003D3FDC /* cookpad-internship-2020-summer-pbl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C16C8ED424F65690003D3FDC /* Build configuration list for PBXNativeTarget "cookpad-internship-2020-summer-pbl" */;
+			buildPhases = (
+				C16C8EBC24F6568E003D3FDC /* Sources */,
+				C16C8EBD24F6568E003D3FDC /* Frameworks */,
+				C16C8EBE24F6568E003D3FDC /* Resources */,
+				C16C8ED924F65A42003D3FDC /* Carthage */,
+				C16C8EE724F65AA3003D3FDC /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "cookpad-internship-2020-summer-pbl";
+			productName = "cookpad-internship-2020-summer-pbl";
+			productReference = C16C8EC024F6568E003D3FDC /* cookpad-internship-2020-summer-pbl.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C16C8EB824F6568E003D3FDC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "Ren Matsushita";
+				TargetAttributes = {
+					C16C8EBF24F6568E003D3FDC = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = C16C8EBB24F6568E003D3FDC /* Build configuration list for PBXProject "cookpad-internship-2020-summer-pbl" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C16C8EB724F6568E003D3FDC;
+			productRefGroup = C16C8EC124F6568E003D3FDC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C16C8EBF24F6568E003D3FDC /* cookpad-internship-2020-summer-pbl */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C16C8EBE24F6568E003D3FDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C16C8ED024F65690003D3FDC /* LaunchScreen.storyboard in Resources */,
+				C16C8ECD24F65690003D3FDC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C16C8ED924F65A42003D3FDC /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C16C8EBC24F6568E003D3FDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C16C8EC824F6568E003D3FDC /* SelectFoodstuffViewController.swift in Sources */,
+				C16C8EEA24F65B95003D3FDC /* SelectFoodstuffViewModel.swift in Sources */,
+				C16C8EC424F6568E003D3FDC /* AppDelegate.swift in Sources */,
+				C16C8EC624F6568E003D3FDC /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C16C8ECE24F65690003D3FDC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C16C8ECF24F65690003D3FDC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C16C8ED224F65690003D3FDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C16C8ED324F65690003D3FDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C16C8ED524F65690003D3FDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K3WSFBFNGQ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "cookpad-internship-2020-summer-pbl/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ren.cookpad-internship-2020-summer-pbl";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C16C8ED624F65690003D3FDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K3WSFBFNGQ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "cookpad-internship-2020-summer-pbl/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ren.cookpad-internship-2020-summer-pbl";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C16C8EBB24F6568E003D3FDC /* Build configuration list for PBXProject "cookpad-internship-2020-summer-pbl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C16C8ED224F65690003D3FDC /* Debug */,
+				C16C8ED324F65690003D3FDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C16C8ED424F65690003D3FDC /* Build configuration list for PBXNativeTarget "cookpad-internship-2020-summer-pbl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C16C8ED524F65690003D3FDC /* Debug */,
+				C16C8ED624F65690003D3FDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C16C8EB824F6568E003D3FDC /* Project object */;
+}
