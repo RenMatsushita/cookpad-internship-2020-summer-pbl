@@ -18,7 +18,11 @@ final class SelectFoodstuffViewModel {
     
     //outputs
     var foodstuffChoises: Observable<[Foodstuff]>
-    private let selectedFoodStuffs: BehaviorRelay<[Foodstuff]> = .init(value: [])
+    private let selectedFoodStuffsRelay: BehaviorRelay<[Foodstuff]> = .init(value: [])
+    var selectedFoodStuffs: Observable<[Foodstuff]> {
+        return selectedFoodStuffsRelay.asObservable()
+    }
+    var radarChartDataSet: Observable<RadarChartDataSet>
     
     private let disposeBag: DisposeBag = .init()
     init(model: FoodstuffModelProtocol = FoodstuffModel()) {
@@ -26,5 +30,43 @@ final class SelectFoodstuffViewModel {
             .flatMap { _ -> Observable<[Foodstuff]> in
                 return model.getFoodstuffChoises()
             }
+        
+        radarChartDataSet = selectedFoodStuffsRelay
+            .map { foodstuff in
+                let radarChartDataSet = RadarChartDataSet(entries: [
+                    RadarChartDataEntry(value: 210),
+                    RadarChartDataEntry(value: 60.0),
+                    RadarChartDataEntry(value: 150.0),
+                    RadarChartDataEntry(value: 150.0),
+                    RadarChartDataEntry(value: 160.0),
+                ])
+//                radarChartDataSet.fillcolo
+//                radarChartDataSet
+                radarChartDataSet.label = nil
+                return radarChartDataSet
+            }
+        
+        selectFoodstuffSubject
+            .subscribe(onNext: { [weak self] foodstuff in
+                self?.selectedFoodStuffsRelay.accept(self?.selectedFoodStuffsRelay.value ?? [] + [foodstuff])
+            })
+            .disposed(by: disposeBag)
+        
+        cancelSelectFoodstuffSubject
+            .subscribe(onNext: { [weak self] deleteFoodstuff in
+                var selectedFoodstuffsValue = self?.selectedFoodStuffsRelay.value
+                self?.selectedFoodStuffsRelay.accept(selectedFoodstuffsValue?.remove(value: deleteFoodstuff) ?? [])
+            })
+            .disposed(by: disposeBag)
+    }
+}
+
+extension Array where Element: Equatable {
+    mutating func remove(value: Element) -> Array<Element> {
+        if let i = self.firstIndex(of: value) {
+            self.remove(at: i)
+            return self
+        }
+        return []
     }
 }

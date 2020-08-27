@@ -38,7 +38,7 @@ final class SelectFoodstuffView: CardView {
     
     let foodstuffViewTappedSubject: PublishSubject<(CGRect, Foodstuff)> = .init()
     var refreshButtonObservable: Observable<Void> {
-        return refreshButton.rx.tap.asObservable()
+        return refreshButton.rx.tap.impactOccurred(.light).asObservable()
     }
     let disposeBag: DisposeBag = .init()
     

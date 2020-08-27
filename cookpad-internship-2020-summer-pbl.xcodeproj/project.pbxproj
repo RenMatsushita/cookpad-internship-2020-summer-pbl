@@ -32,6 +32,7 @@
 		C16E17C624F75F5F005EED57 /* FoodstuffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E17C524F75F5F005EED57 /* FoodstuffView.swift */; };
 		C16E17C924F768C6005EED57 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E17C824F768C6005EED57 /* UIView.swift */; };
 		C16E17CB24F773EE005EED57 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E17CA24F773EE005EED57 /* CardView.swift */; };
+		C1AFACD724F877DB00FA9393 /* ChartFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AFACD624F877DB00FA9393 /* ChartFormatters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -75,6 +76,7 @@
 		C16E17C524F75F5F005EED57 /* FoodstuffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodstuffView.swift; sourceTree = "<group>"; };
 		C16E17C824F768C6005EED57 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		C16E17CA24F773EE005EED57 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		C1AFACD624F877DB00FA9393 /* ChartFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartFormatters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		C16C8EC224F6568E003D3FDC /* cookpad-internship-2020-summer-pbl */ = {
 			isa = PBXGroup;
 			children = (
+				C1AFACD524F877CC00FA9393 /* Libraries */,
 				C16C8ED724F656BA003D3FDC /* App */,
 				C16E17B624F744D8005EED57 /* Entity */,
 				C16E17B324F74473005EED57 /* Resources */,
@@ -233,6 +236,14 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		C1AFACD524F877CC00FA9393 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				C1AFACD624F877DB00FA9393 /* ChartFormatters.swift */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -332,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C16E17CB24F773EE005EED57 /* CardView.swift in Sources */,
+				C1AFACD724F877DB00FA9393 /* ChartFormatters.swift in Sources */,
 				C16E17C924F768C6005EED57 /* UIView.swift in Sources */,
 				C16E17B224F7441E005EED57 /* FeedBackGenerator.swift in Sources */,
 				C16E17C624F75F5F005EED57 /* FoodstuffView.swift in Sources */,

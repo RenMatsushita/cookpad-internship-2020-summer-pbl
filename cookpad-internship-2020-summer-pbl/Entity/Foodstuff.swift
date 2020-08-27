@@ -6,7 +6,10 @@
 //  Copyright © 2020 Ren Matsushita. All rights reserved.
 //
 
-struct Foodstuff {
+import Foundation
+
+struct Foodstuff: Equatable {
+    let id: String = UUID().uuidString
     let name: String
     let imageName: String
     let gramWeight: String

@@ -14,7 +14,7 @@ final class FoodstuffView: CardView {
     private var foodstuff: Foodstuff!
     @IBOutlet private weak var containerButton: UIButton!
     var containerButtonTapped: Observable<Foodstuff> {
-        return containerButton.rx.tap.map { self.foodstuff }.asObservable()
+        return containerButton.rx.tap.impactOccurred(.light).map { self.foodstuff }.asObservable()
     }
     let disposeBag: DisposeBag = .init()
     @IBOutlet private weak var nameLabel: UILabel!
