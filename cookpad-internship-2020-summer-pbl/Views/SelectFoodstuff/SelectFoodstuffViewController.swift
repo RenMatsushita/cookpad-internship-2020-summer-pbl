@@ -54,23 +54,23 @@ final class SelectFoodstuffViewController: UIViewController {
         title = "食材を選ぼう！"
         configureViews()
         configureLayout()
-        viewModel.refreshSubject.onNext(())
         
         selectFoodstuffView
             .foodstuffViewTappedSubject
             .asObservable()
             .subscribe(onNext: { [weak self] imageFrame, foodstuff in
                 let selectedFoodstuffImageView = UIImageView(frame: imageFrame)
+                selectedFoodstuffImageView.image = UIImage(named: foodstuff.imageName)
                 self?.view.addSubview(selectedFoodstuffImageView)
-                UIView.animate(withDuration: 1, animations: {
-                    // それぞれx, yでないと動かないかもしれない
+                UIView.animate(withDuration: 0.7, delay: 0, options: [.curveEaseInOut], animations: {
                     selectedFoodstuffImageView.center = self!.radarChartView.center
-                    selectedFoodstuffImageView.alpha = 0.1
+                    selectedFoodstuffImageView.alpha = 0
                 }, completion: { _ in
+                    selectedFoodstuffImageView.removeFromSuperview()
                     self?.viewModel.selectFoodstuffSubject.onNext(foodstuff)
                 })
             })
-            .disposed(by: disposeBag)
+            .disposed(by: selectFoodstuffView.disposeBag)
         
         selectFoodstuffView.refreshButtonObservable
             .subscribe { [weak self] _ in
@@ -82,10 +82,12 @@ final class SelectFoodstuffViewController: UIViewController {
 //            .bind(to: foodstuffChoisesBinder)
 //            .disposed(by: disposeBag)
         viewModel.foodstuffChoises
-            .subscribe(onNext: { foodstuffs in
-                Console.log(foodstuffs)
+            .subscribe(onNext: { [weak self] foodstuffs in
+                self?.selectFoodstuffView.configure(with: foodstuffs)
             })
             .disposed(by: disposeBag)
+        viewModel.refreshSubject.onNext(())
+
     }
     
     private func configureViews() {
@@ -120,7 +122,7 @@ final class SelectFoodstuffViewController: UIViewController {
         selectFoodstuffView.backgroundColor = .white
         selectFoodstuffView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         selectFoodstuffView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        selectFoodstuffView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
+        selectFoodstuffView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.33).isActive = true
         selectFoodstuffView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
     }
 }
@@ -128,7 +130,6 @@ final class SelectFoodstuffViewController: UIViewController {
 extension SelectFoodstuffViewController {
     private var foodstuffChoisesBinder: Binder<[Foodstuff]> {
         return Binder<[Foodstuff]>(self) { me, foodstuffs in
-            Console.log(foodstuffs)
             me.selectFoodstuffView.configure(with: foodstuffs)
         }
     }

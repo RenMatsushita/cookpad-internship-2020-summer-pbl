@@ -14,11 +14,15 @@ protocol FoodstuffModelProtocol {
 
 final class FoodstuffModel: FoodstuffModelProtocol {
     func getFoodstuffChoises() -> Observable<[Foodstuff]> {
-        return Observable.of([
+        return Observable.of([[
             Foodstuff(name: "waiwai", imageName: "takoyaki", gramWeight: "", mineral: 0, vitamin: 0, lipid: 0, sugariness: 0, protein: 0, genre: .vegetable),
-            Foodstuff(name: "waiwai", imageName: "takoyaki", gramWeight: "", mineral: 0, vitamin: 0, lipid: 0, sugariness: 0, protein: 0, genre: .vegetable),
+            Foodstuff(name: "ssssss", imageName: "takoyaki", gramWeight: "", mineral: 0, vitamin: 0, lipid: 0, sugariness: 0, protein: 0, genre: .vegetable),
             Foodstuff(name: "waiwai", imageName: "takoyaki", gramWeight: "", mineral: 0, vitamin: 0, lipid: 0, sugariness: 0, protein: 0, genre: .vegetable)
-        ])
+        ], [
+            Foodstuff(name: "waiwai", imageName: "takoyaki", gramWeight: "", mineral: 0, vitamin: 0, lipid: 0, sugariness: 0, protein: 0, genre: .vegetable),
+            Foodstuff(name: "ssssss", imageName: "takoyaki", gramWeight: "", mineral: 0, vitamin: 0, lipid: 0, sugariness: 0, protein: 0, genre: .vegetable),
+            Foodstuff(name: "sss", imageName: "takoyaki", gramWeight: "", mineral: 0, vitamin: 0, lipid: 0, sugariness: 0, protein: 0, genre: .vegetable)
+            ]].randomElement()!)
     }
 }
 

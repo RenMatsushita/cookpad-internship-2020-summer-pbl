@@ -29,7 +29,10 @@ final class SelectFoodstuffView: CardView {
     private lazy var refreshButton: UIButton = {
         let refreshButton: UIButton = .init()
         refreshButton.translatesAutoresizingMaskIntoConstraints = false
-        refreshButton.setTitle("リフレッシュ", for: .normal)
+        refreshButton.setTitle("シャッフル", for: .normal)
+        refreshButton.setTitleColor(AppColor.text, for: .normal)
+        refreshButton.titleLabel?.textAlignment = .left
+        refreshButton.titleLabel?.font = .systemFont(ofSize: 14)
         return refreshButton
     }()
     
@@ -39,35 +42,41 @@ final class SelectFoodstuffView: CardView {
     }
     let disposeBag: DisposeBag = .init()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         addSubview(headerLabel)
         addSubview(stackView)
         addSubview(refreshButton)
         
-        headerLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
+        headerLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 16).isActive = true
         headerLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        stackView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 20).isActive = true
+        stackView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 16).isActive = true
         stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 24).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24).isActive = true
         refreshButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 8).isActive = true
-        refreshButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 20).isActive = true
         refreshButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+        refreshButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        layer.cornerRadius = 16
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func configure(with foodstuffs: [Foodstuff]) {
-        layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         stackView.subviews.forEach { view in view.removeFromSuperview() }
         for foodstuff in foodstuffs {
             let foodstuffView: FoodstuffView = FoodstuffView.create()
             stackView.addArrangedSubview(foodstuffView)
             foodstuffView.configure(foodstuff: foodstuff)
             foodstuffView.containerButtonTapped
-                .subscribe { _ in
-                    // TODO 挙動怪しい
-                    let foodstuffViewAbsolutePath = foodstuffView.convert(foodstuffView.imageView.frame, to: self.superview)
-                    Console.warning(foodstuffViewAbsolutePath)
-                    self.foodstuffViewTappedSubject.onNext((foodstuffViewAbsolutePath, foodstuff))
+                .subscribe { [weak self] _ in
+                    guard let me = self else {
+                        fatalError("self is nil waiwai pien")
+                    }
+                    let foodstuffViewAbsolutePath = foodstuffView.convert(foodstuffView.imageView.frame, to: me.superview)
+                    me.foodstuffViewTappedSubject.onNext((foodstuffViewAbsolutePath, foodstuff))
                 }
                 .disposed(by: foodstuffView.disposeBag)
         }
