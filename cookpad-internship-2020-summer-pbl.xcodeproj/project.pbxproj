@@ -21,6 +21,17 @@
 		C16C8EE524F65AA3003D3FDC /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C16C8EDE24F65AA3003D3FDC /* RxSwift.framework */; };
 		C16C8EE624F65AA3003D3FDC /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C16C8EDE24F65AA3003D3FDC /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C16C8EEA24F65B95003D3FDC /* SelectFoodstuffViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16C8EE924F65B95003D3FDC /* SelectFoodstuffViewModel.swift */; };
+		C16E17AC24F742F4005EED57 /* ConfirmFoodstuffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E17AB24F742F4005EED57 /* ConfirmFoodstuffViewController.swift */; };
+		C16E17AE24F74389005EED57 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E17AD24F74389005EED57 /* Console.swift */; };
+		C16E17B224F7441E005EED57 /* FeedBackGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E17B124F7441E005EED57 /* FeedBackGenerator.swift */; };
+		C16E17B824F744E2005EED57 /* Foodstuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E17B724F744E2005EED57 /* Foodstuff.swift */; };
+		C16E17BA24F7472A005EED57 /* SelectFoodstuffModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E17B924F7472A005EED57 /* SelectFoodstuffModel.swift */; };
+		C16E17BC24F74B28005EED57 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E17BB24F74B28005EED57 /* AppColor.swift */; };
+		C16E17C124F7537C005EED57 /* SelectFoodstuffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E17C024F7537C005EED57 /* SelectFoodstuffView.swift */; };
+		C16E17C424F75F4F005EED57 /* FoodstuffView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C16E17C324F75F4F005EED57 /* FoodstuffView.xib */; };
+		C16E17C624F75F5F005EED57 /* FoodstuffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E17C524F75F5F005EED57 /* FoodstuffView.swift */; };
+		C16E17C924F768C6005EED57 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E17C824F768C6005EED57 /* UIView.swift */; };
+		C16E17CB24F773EE005EED57 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E17CA24F773EE005EED57 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +64,17 @@
 		C16C8EDD24F65AA3003D3FDC /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		C16C8EDE24F65AA3003D3FDC /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		C16C8EE924F65B95003D3FDC /* SelectFoodstuffViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFoodstuffViewModel.swift; sourceTree = "<group>"; };
+		C16E17AB24F742F4005EED57 /* ConfirmFoodstuffViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmFoodstuffViewController.swift; sourceTree = "<group>"; };
+		C16E17AD24F74389005EED57 /* Console.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Console.swift; sourceTree = "<group>"; };
+		C16E17B124F7441E005EED57 /* FeedBackGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackGenerator.swift; sourceTree = "<group>"; };
+		C16E17B724F744E2005EED57 /* Foodstuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foodstuff.swift; sourceTree = "<group>"; };
+		C16E17B924F7472A005EED57 /* SelectFoodstuffModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFoodstuffModel.swift; sourceTree = "<group>"; };
+		C16E17BB24F74B28005EED57 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		C16E17C024F7537C005EED57 /* SelectFoodstuffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFoodstuffView.swift; sourceTree = "<group>"; };
+		C16E17C324F75F4F005EED57 /* FoodstuffView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodstuffView.xib; sourceTree = "<group>"; };
+		C16E17C524F75F5F005EED57 /* FoodstuffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodstuffView.swift; sourceTree = "<group>"; };
+		C16E17C824F768C6005EED57 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		C16E17CA24F773EE005EED57 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,10 +113,10 @@
 			isa = PBXGroup;
 			children = (
 				C16C8ED724F656BA003D3FDC /* App */,
+				C16E17B624F744D8005EED57 /* Entity */,
+				C16E17B324F74473005EED57 /* Resources */,
+				C16E17AF24F7440D005EED57 /* Extensions */,
 				C16C8ED824F656C3003D3FDC /* Views */,
-				C16C8ECC24F65690003D3FDC /* Assets.xcassets */,
-				C16C8ECE24F65690003D3FDC /* LaunchScreen.storyboard */,
-				C16C8ED124F65690003D3FDC /* Info.plist */,
 			);
 			path = "cookpad-internship-2020-summer-pbl";
 			sourceTree = "<group>";
@@ -104,6 +126,8 @@
 			children = (
 				C16C8EC324F6568E003D3FDC /* AppDelegate.swift */,
 				C16C8EC524F6568E003D3FDC /* SceneDelegate.swift */,
+				C16E17AD24F74389005EED57 /* Console.swift */,
+				C16E17BB24F74B28005EED57 /* AppColor.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -111,7 +135,9 @@
 		C16C8ED824F656C3003D3FDC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C16E17AA24F742D4005EED57 /* ConfirmFoodstuff */,
 				C16C8EE824F65B70003D3FDC /* SelectFoodstuff */,
+				C16E17CA24F773EE005EED57 /* CardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -130,10 +156,81 @@
 		C16C8EE824F65B70003D3FDC /* SelectFoodstuff */ = {
 			isa = PBXGroup;
 			children = (
+				C16E17C224F75E4D005EED57 /* FoodstuffView */,
+				C16E17BD24F7535C005EED57 /* SelectFoodstuffView */,
 				C16C8EC724F6568E003D3FDC /* SelectFoodstuffViewController.swift */,
 				C16C8EE924F65B95003D3FDC /* SelectFoodstuffViewModel.swift */,
+				C16E17B924F7472A005EED57 /* SelectFoodstuffModel.swift */,
 			);
 			path = SelectFoodstuff;
+			sourceTree = "<group>";
+		};
+		C16E17AA24F742D4005EED57 /* ConfirmFoodstuff */ = {
+			isa = PBXGroup;
+			children = (
+				C16E17AB24F742F4005EED57 /* ConfirmFoodstuffViewController.swift */,
+			);
+			path = ConfirmFoodstuff;
+			sourceTree = "<group>";
+		};
+		C16E17AF24F7440D005EED57 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C16E17C724F768B5005EED57 /* UI */,
+				C16E17B024F74411005EED57 /* Rx */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C16E17B024F74411005EED57 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				C16E17B124F7441E005EED57 /* FeedBackGenerator.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
+		C16E17B324F74473005EED57 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C16C8ECC24F65690003D3FDC /* Assets.xcassets */,
+				C16C8ECE24F65690003D3FDC /* LaunchScreen.storyboard */,
+				C16C8ED124F65690003D3FDC /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C16E17B624F744D8005EED57 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				C16E17B724F744E2005EED57 /* Foodstuff.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		C16E17BD24F7535C005EED57 /* SelectFoodstuffView */ = {
+			isa = PBXGroup;
+			children = (
+				C16E17C024F7537C005EED57 /* SelectFoodstuffView.swift */,
+			);
+			path = SelectFoodstuffView;
+			sourceTree = "<group>";
+		};
+		C16E17C224F75E4D005EED57 /* FoodstuffView */ = {
+			isa = PBXGroup;
+			children = (
+				C16E17C324F75F4F005EED57 /* FoodstuffView.xib */,
+				C16E17C524F75F5F005EED57 /* FoodstuffView.swift */,
+			);
+			path = FoodstuffView;
+			sourceTree = "<group>";
+		};
+		C16E17C724F768B5005EED57 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C16E17C824F768C6005EED57 /* UIView.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C16E17C424F75F4F005EED57 /* FoodstuffView.xib in Resources */,
 				C16C8ED024F65690003D3FDC /* LaunchScreen.storyboard in Resources */,
 				C16C8ECD24F65690003D3FDC /* Assets.xcassets in Resources */,
 			);
@@ -233,8 +331,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C16E17CB24F773EE005EED57 /* CardView.swift in Sources */,
+				C16E17C924F768C6005EED57 /* UIView.swift in Sources */,
+				C16E17B224F7441E005EED57 /* FeedBackGenerator.swift in Sources */,
+				C16E17C624F75F5F005EED57 /* FoodstuffView.swift in Sources */,
+				C16E17BC24F74B28005EED57 /* AppColor.swift in Sources */,
+				C16E17C124F7537C005EED57 /* SelectFoodstuffView.swift in Sources */,
+				C16E17BA24F7472A005EED57 /* SelectFoodstuffModel.swift in Sources */,
+				C16E17AC24F742F4005EED57 /* ConfirmFoodstuffViewController.swift in Sources */,
+				C16E17AE24F74389005EED57 /* Console.swift in Sources */,
 				C16C8EC824F6568E003D3FDC /* SelectFoodstuffViewController.swift in Sources */,
 				C16C8EEA24F65B95003D3FDC /* SelectFoodstuffViewModel.swift in Sources */,
+				C16E17B824F744E2005EED57 /* Foodstuff.swift in Sources */,
 				C16C8EC424F6568E003D3FDC /* AppDelegate.swift in Sources */,
 				C16C8EC624F6568E003D3FDC /* SceneDelegate.swift in Sources */,
 			);
@@ -378,7 +486,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "cookpad-internship-2020-summer-pbl/Info.plist";
+				INFOPLIST_FILE = "cookpad-internship-2020-summer-pbl/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -400,7 +508,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "cookpad-internship-2020-summer-pbl/Info.plist";
+				INFOPLIST_FILE = "cookpad-internship-2020-summer-pbl/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

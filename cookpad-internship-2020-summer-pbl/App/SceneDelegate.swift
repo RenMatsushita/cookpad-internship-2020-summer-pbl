@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         window.makeKeyAndVisible()
         let selectFoodstuffViewController = SelectFoodstuffViewController()
-        window.rootViewController = selectFoodstuffViewController
+        window.rootViewController = UINavigationController(rootViewController: selectFoodstuffViewController)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -6,10 +6,25 @@
 //  Copyright © 2020 Ren Matsushita. All rights reserved.
 //
 
-import Foundation
+import Charts
+import RxSwift
+import RxCocoa
 
 final class SelectFoodstuffViewModel {
-    init() {
-        
+    // input
+    let selectFoodstuffSubject: PublishSubject<Foodstuff> = .init()
+    let cancelSelectFoodstuffSubject: PublishSubject<Foodstuff> = .init()
+    let refreshSubject: PublishSubject<Void> = .init()
+    
+    //outputs
+    var foodstuffChoises: Observable<[Foodstuff]>
+    private let selectedFoodStuffs: BehaviorRelay<[Foodstuff]> = .init(value: [])
+    
+    private let disposeBag: DisposeBag = .init()
+    init(model: FoodstuffModelProtocol = FoodstuffModel()) {
+        foodstuffChoises = refreshSubject
+            .flatMap { _ -> Observable<[Foodstuff]> in
+                return model.getFoodstuffChoises()
+            }
     }
 }
