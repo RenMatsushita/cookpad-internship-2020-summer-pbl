@@ -61,6 +61,7 @@ final class SelectFoodstuffViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Cook Select"
         navigationItem.rightBarButtonItem = searchButtonItem
         configureViews()
         configureLayout()
