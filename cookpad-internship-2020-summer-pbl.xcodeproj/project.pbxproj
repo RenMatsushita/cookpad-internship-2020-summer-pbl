@@ -36,6 +36,7 @@
 		C1AFACD924F886FC00FA9393 /* SelectedFoodstuffCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AFACD824F886FC00FA9393 /* SelectedFoodstuffCollectionViewDataSource.swift */; };
 		C1AFACDB24F8883000FA9393 /* SelectedFoodstuffCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AFACDA24F8883000FA9393 /* SelectedFoodstuffCollectionViewLayout.swift */; };
 		C1E96B9124F8AD6A00F56010 /* Nutorient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E96B9024F8AD6A00F56010 /* Nutorient.swift */; };
+		C1E96B9624F8C1E200F56010 /* FoodstuffImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E96B9524F8C1E200F56010 /* FoodstuffImageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -83,6 +84,7 @@
 		C1AFACD824F886FC00FA9393 /* SelectedFoodstuffCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFoodstuffCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		C1AFACDA24F8883000FA9393 /* SelectedFoodstuffCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFoodstuffCollectionViewLayout.swift; sourceTree = "<group>"; };
 		C1E96B9024F8AD6A00F56010 /* Nutorient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutorient.swift; sourceTree = "<group>"; };
+		C1E96B9524F8C1E200F56010 /* FoodstuffImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodstuffImageCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 		C16C8EE824F65B70003D3FDC /* SelectFoodstuff */ = {
 			isa = PBXGroup;
 			children = (
+				C1E96B9424F8C1C000F56010 /* FoodstuffImageCell */,
 				C16E17C224F75E4D005EED57 /* FoodstuffView */,
 				C16E17BD24F7535C005EED57 /* SelectFoodstuffView */,
 				C16C8EC724F6568E003D3FDC /* SelectFoodstuffViewController.swift */,
@@ -251,6 +254,14 @@
 				C1AFACD624F877DB00FA9393 /* ChartFormatters.swift */,
 			);
 			path = Libraries;
+			sourceTree = "<group>";
+		};
+		C1E96B9424F8C1C000F56010 /* FoodstuffImageCell */ = {
+			isa = PBXGroup;
+			children = (
+				C1E96B9524F8C1E200F56010 /* FoodstuffImageCollectionViewCell.swift */,
+			);
+			path = FoodstuffImageCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C16E17CB24F773EE005EED57 /* CardView.swift in Sources */,
+				C1E96B9624F8C1E200F56010 /* FoodstuffImageCollectionViewCell.swift in Sources */,
 				C1AFACDB24F8883000FA9393 /* SelectedFoodstuffCollectionViewLayout.swift in Sources */,
 				C1AFACD724F877DB00FA9393 /* ChartFormatters.swift in Sources */,
 				C16E17C924F768C6005EED57 /* UIView.swift in Sources */,

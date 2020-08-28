@@ -42,7 +42,7 @@ final class SelectFoodstuffViewController: UIViewController {
         collectionView.backgroundColor = .white
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.dataSource = self.collectionViewDataSource
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "selectedFoodstuffCell")
+        collectionView.register(FoodstuffImageCollectionViewCell.self, forCellWithReuseIdentifier: "selectedFoodstuffCell")
         return collectionView
     }()
     private lazy var selectFoodstuffView: SelectFoodstuffView = {
@@ -62,6 +62,7 @@ final class SelectFoodstuffViewController: UIViewController {
         configureViews()
         configureLayout()
         observeSelectFoodstuffView()
+        observeCollectionViewDelegate()
         observeViewModel()
         // 初期選択肢をとってくるためにnextを流す
         viewModel.refreshSubject.onNext(())
@@ -103,6 +104,14 @@ final class SelectFoodstuffViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
+    private func observeCollectionViewDelegate() {
+        collectionViewDataSource.deleteButtonTapSubject
+            .subscribe(onNext: { [weak self] foodstuff in
+                self?.viewModel.cancelSelectFoodstuffSubject.onNext(foodstuff)
+            })
+            .disposed(by: disposeBag)
+    }
+    
     private func observeViewModel() {
         viewModel.foodstuffChoises
             .bind(to: foodstuffChoisesBinder)
@@ -125,8 +134,8 @@ final class SelectFoodstuffViewController: UIViewController {
         contentView.addSubview(baseStackView)
         radarChartView.webLineWidth = 1.5
         radarChartView.innerWebLineWidth = 2
-        radarChartView.webColor = .lightGray
-        radarChartView.innerWebColor = .lightGray
+        radarChartView.webColor = .darkGray
+        radarChartView.innerWebColor = .darkGray
 
         let xAxis = radarChartView.xAxis
         xAxis.labelFont = .systemFont(ofSize: 9, weight: .bold)
@@ -184,6 +193,10 @@ extension SelectFoodstuffViewController {
     
     private var radarChardViewBinder: Binder<RadarChartDataSet> {
         return Binder<RadarChartDataSet>(self) { me, radarChardDataSet in
+            radarChardDataSet.fillColor = AppColor.primary
+            radarChardDataSet.fillAlpha = 0.5
+            radarChardDataSet.colors = [AppColor.primary]
+            radarChardDataSet.drawFilledEnabled = true
             let radarChartData = RadarChartData(dataSet: radarChardDataSet)
             radarChartData.setValueFormatter(DataSetValueFormatter())
             me.radarChartView.data = radarChartData

@@ -16,7 +16,14 @@ protocol FoodstuffModelProtocol {
 final class FoodstuffModel: FoodstuffModelProtocol {
     let foodstuffsMaterials = [
         Foodstuff(name: "じゃがいも", imageName: "poteto", gramWeight: 100, nutorient: Nutorient(mineral: 2, vitamin: 15, lipid: 0.1, sugariness: 20, protein: 1.5), genre: .vegetable),
+        Foodstuff(name: "じゃがいも", imageName: "poteto", gramWeight: 100, nutorient: Nutorient(mineral: 2, vitamin: 15, lipid: 0.1, sugariness: 20, protein: 1.5), genre: .vegetable),
         Foodstuff(name: "ニンジン", imageName: "ninjin", gramWeight: 100, nutorient: Nutorient(mineral: 32, vitamin: 4, lipid: 0.3, sugariness: 8.4, protein: 0.6), genre: .vegetable),
+        Foodstuff(name: "ニンジン", imageName: "ninjin", gramWeight: 100, nutorient: Nutorient(mineral: 32, vitamin: 4, lipid: 0.3, sugariness: 8.4, protein: 0.6), genre: .vegetable),
+        Foodstuff(name: "レタス", imageName: "retasu", gramWeight: 100, nutorient: Nutorient(mineral: 19, vitamin: 5, lipid: 0.1, sugariness: 2.8, protein: 0.6), genre: .vegetable),
+        Foodstuff(name: "レタス", imageName: "retasu", gramWeight: 100, nutorient: Nutorient(mineral: 19, vitamin: 5, lipid: 0.1, sugariness: 2.8, protein: 0.6), genre: .vegetable),
+        Foodstuff(name: "ピーマン", imageName: "piman", gramWeight: 100, nutorient: Nutorient(mineral: 11, vitamin: 76, lipid: 0.2, sugariness: 5.1, protein: 0.9), genre: .vegetable),
+        Foodstuff(name: "ピーマン", imageName: "piman", gramWeight: 100, nutorient: Nutorient(mineral: 11, vitamin: 76, lipid: 0.2, sugariness: 5.1, protein: 0.9), genre: .vegetable),
+        Foodstuff(name: "ピーマン", imageName: "piman", gramWeight: 100, nutorient: Nutorient(mineral: 11, vitamin: 76, lipid: 0.2, sugariness: 5.1, protein: 0.9), genre: .vegetable),
         Foodstuff(name: "オクラ", imageName: "okura", gramWeight: 100, nutorient: Nutorient(mineral: 90, vitamin: 7, lipid: 0.1, sugariness: 7.6, protein: 2.1), genre: .vegetable),
         Foodstuff(name: "クロマグロ", imageName: "utna", gramWeight: 100, nutorient: Nutorient(mineral: 5, vitamin: 2, lipid: 1.4, sugariness: 0.1, protein: 26.4), genre: .fish),
         Foodstuff(name: "タイ", imageName: "tai", gramWeight: 100, nutorient: Nutorient(mineral: 11, vitamin: 1, lipid: 5.8, sugariness: 0.1, protein: 20), genre: .fish),
@@ -25,14 +32,12 @@ final class FoodstuffModel: FoodstuffModelProtocol {
         Foodstuff(name: "豚肉", imageName: "pork", gramWeight: 100, nutorient: Nutorient(mineral: 6, vitamin: 1, lipid: 22.7, sugariness: 0.3, protein: 26.7), genre: .meet),
         Foodstuff(name: "牛肉", imageName: "hire", gramWeight: 100, nutorient: Nutorient(mineral: 5, vitamin: 0, lipid: 15.2, sugariness: 0.4, protein: 24.3), genre: .meet),
     ]
-    
     let requiredNutorient: Nutorient = Nutorient(mineral: 183, vitamin: 100, lipid: 15, sugariness: 76, protein: 20)
+    
     func getFoodstuffChoises() -> Observable<[Foodstuff]> {
-        return Observable.of([
-            foodstuffsMaterials[0],
-            foodstuffsMaterials[1],
-            foodstuffsMaterials[2]
-        ])
+        return Observable.of(
+            foodstuffsMaterials.shuffled().prefix(3).map { $0 }
+        )
     }
     
     func calculateNutorientBalance(selected foodstuffs: [Foodstuff]) -> Nutorient {

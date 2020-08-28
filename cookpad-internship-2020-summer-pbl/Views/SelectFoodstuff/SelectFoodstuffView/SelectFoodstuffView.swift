@@ -21,7 +21,7 @@ final class SelectFoodstuffView: CardView {
         let stackView: UIStackView = .init()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
+        stackView.distribution = .fillEqually
         stackView.spacing = 8
         return stackView
     }()

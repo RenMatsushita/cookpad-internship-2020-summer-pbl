@@ -13,6 +13,7 @@ import RxCocoa
 final class SelectedFoodstuffCollectionViewDataSource: NSObject, RxCollectionViewDataSourceType, UICollectionViewDataSource {
     typealias Element = [Foodstuff]
     private var items: Element = []
+    let deleteButtonTapSubject: PublishSubject<Foodstuff> = .init()
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
@@ -23,15 +24,13 @@ final class SelectedFoodstuffCollectionViewDataSource: NSObject, RxCollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        Console.log(items[indexPath.row])
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "selectedFoodstuffCell", for: indexPath)
-        cell.backgroundColor = .white
-        let foodstuffImageView = UIImageView(frame: cell.contentView.frame)
-        foodstuffImageView.layer.cornerRadius = 8
-        foodstuffImageView.clipsToBounds = true
-        foodstuffImageView.image = UIImage(named: items[indexPath.row].imageName)
-        foodstuffImageView.contentMode = .scaleAspectFill
-        cell.contentView.addSubview(foodstuffImageView)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "selectedFoodstuffCell", for: indexPath) as! FoodstuffImageCollectionViewCell
+        cell.configure(with: items[indexPath.item])
+        cell.deleteButtonTapped
+            .subscribe(onNext: { [weak self] foodstuff in
+                self?.deleteButtonTapSubject.onNext(foodstuff)
+            })
+            .disposed(by: cell.disposeBag)
         return cell
     }
     
