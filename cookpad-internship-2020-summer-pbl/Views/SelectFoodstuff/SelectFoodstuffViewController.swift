@@ -10,8 +10,10 @@ import UIKit
 import Charts
 import RxSwift
 import RxCocoa
+import SafariServices
 
 final class SelectFoodstuffViewController: UIViewController {
+    private let searchButtonItem: UIBarButtonItem = .init(barButtonSystemItem: .search, target: self, action: nil)
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -52,13 +54,14 @@ final class SelectFoodstuffViewController: UIViewController {
     }()
     
     private lazy var viewModel: SelectFoodstuffViewModel = .init(
+        searchButtonTapped: self.searchButtonItem.rx.tap.asObservable(),
         model: FoodstuffModel()
     )
     private let disposeBag: DisposeBag = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "食材を選ぼう！"
+        navigationItem.rightBarButtonItem = searchButtonItem
         configureViews()
         configureLayout()
         observeSelectFoodstuffView()
@@ -123,6 +126,10 @@ final class SelectFoodstuffViewController: UIViewController {
         
         viewModel.selectedFoodStuffs
             .bind(to: collectionView.rx.items(dataSource: collectionViewDataSource))
+            .disposed(by: disposeBag)
+        
+        viewModel.showSafariViewControllerSubject
+            .bind(to: showSafariViewControllerBinder)
             .disposed(by: disposeBag)
     }
     
@@ -200,6 +207,13 @@ extension SelectFoodstuffViewController {
             let radarChartData = RadarChartData(dataSet: radarChardDataSet)
             radarChartData.setValueFormatter(DataSetValueFormatter())
             me.radarChartView.data = radarChartData
+        }
+    }
+    
+    private var showSafariViewControllerBinder: Binder<URL> {
+        return Binder<URL>(self) { me, url in
+            let safariViewController = SFSafariViewController(url: url)
+            me.present(safariViewController, animated: true)
         }
     }
 }

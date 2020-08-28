@@ -24,7 +24,7 @@ final class FoodstuffImageCollectionViewCell: UICollectionViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .white
         button.setImage(UIImage(systemName: "multiply"), for: .normal)
-        button.imageEdgeInsets = .init(top: 2, left: 2, bottom: 2, right: 2)
+        button.imageEdgeInsets = .init(top: 2, left: 2, bottom: 3, right: 3)
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
         return button

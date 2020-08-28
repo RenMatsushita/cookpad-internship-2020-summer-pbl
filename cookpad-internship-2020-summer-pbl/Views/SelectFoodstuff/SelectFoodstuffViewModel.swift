@@ -9,6 +9,7 @@
 import Charts
 import RxSwift
 import RxCocoa
+import Foundation
 
 final class SelectFoodstuffViewModel {
     // input
@@ -23,9 +24,11 @@ final class SelectFoodstuffViewModel {
         return selectedFoodStuffsRelay.asObservable()
     }
     var radarChartDataSet: Observable<RadarChartDataSet>
+    let showSafariViewControllerSubject: PublishSubject<URL> = .init()
     
     private let disposeBag: DisposeBag = .init()
-    init(model: FoodstuffModelProtocol = FoodstuffModel()) {
+    init(searchButtonTapped: Observable<Void>,
+        model: FoodstuffModelProtocol = FoodstuffModel()) {
         foodstuffChoises = refreshSubject
             .flatMap { _ -> Observable<[Foodstuff]> in
                 return model.getFoodstuffChoises()
@@ -58,6 +61,15 @@ final class SelectFoodstuffViewModel {
                 var selectedFoodstuffsValue = self?.selectedFoodStuffsRelay.value
                 self?.selectedFoodStuffsRelay.accept(selectedFoodstuffsValue?.remove(value: deleteFoodstuff) ?? [])
             })
+            .disposed(by: disposeBag)
+        
+        searchButtonTapped
+            .subscribe { _ in
+                let searchQuery = self.selectedFoodStuffsRelay.value.map { $0.name }.joined(separator: " ")
+                let urlString = "https://cookpad.com/search/\(searchQuery)"
+                let url = URL(string: urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+                self.showSafariViewControllerSubject.onNext(url)
+            }
             .disposed(by: disposeBag)
     }
 }
