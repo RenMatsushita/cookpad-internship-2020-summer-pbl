@@ -35,12 +35,15 @@ final class SelectFoodstuffViewController: UIViewController {
         radarChartView.translatesAutoresizingMaskIntoConstraints = false
         return radarChartView
     }()
+    private let collectionViewDataSource = SelectedFoodstuffCollectionViewDataSource()
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: SelectedFoodstuffCollectionViewLayout.create())
-        collectionView.translatesAutoresizingMaskIntoConstraints = true
-        collectionView.dataSource = self
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .white
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.dataSource = self.collectionViewDataSource
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "selectedFoodstuffCell")
-        return UICollectionView()
+        return collectionView
     }()
     private lazy var selectFoodstuffView: SelectFoodstuffView = {
         let selectFoodstuffView = SelectFoodstuffView()
@@ -58,7 +61,13 @@ final class SelectFoodstuffViewController: UIViewController {
         title = "食材を選ぼう！"
         configureViews()
         configureLayout()
-        
+        observeSelectFoodstuffView()
+        observeViewModel()
+        // 初期選択肢をとってくるためにnextを流す
+        viewModel.refreshSubject.onNext(())
+    }
+    
+    private func observeSelectFoodstuffView() {
         selectFoodstuffView
             .foodstuffViewTappedSubject
             .asObservable()
@@ -92,7 +101,9 @@ final class SelectFoodstuffViewController: UIViewController {
                 self?.viewModel.refreshSubject.onNext(())
             }
             .disposed(by: disposeBag)
-        
+    }
+    
+    private func observeViewModel() {
         viewModel.foodstuffChoises
             .bind(to: foodstuffChoisesBinder)
             .disposed(by: disposeBag)
@@ -100,8 +111,10 @@ final class SelectFoodstuffViewController: UIViewController {
         viewModel.radarChartDataSet
             .bind(to: radarChardViewBinder)
             .disposed(by: disposeBag)
-        // 初期選択肢をとってくるためにnextを流す
-        viewModel.refreshSubject.onNext(())
+        
+        viewModel.selectedFoodStuffs
+            .bind(to: collectionView.rx.items(dataSource: collectionViewDataSource))
+            .disposed(by: disposeBag)
     }
     
     private func configureViews() {
@@ -111,7 +124,7 @@ final class SelectFoodstuffViewController: UIViewController {
         scrollView.addSubview(contentView)
         contentView.addSubview(baseStackView)
         radarChartView.webLineWidth = 1.5
-        radarChartView.innerWebLineWidth = 1.5
+        radarChartView.innerWebLineWidth = 2
         radarChartView.webColor = .lightGray
         radarChartView.innerWebColor = .lightGray
 
@@ -124,6 +137,8 @@ final class SelectFoodstuffViewController: UIViewController {
         
         let yAxis = radarChartView.yAxis
         yAxis.enabled = false
+        yAxis.axisMinimum = 0
+        yAxis.axisMaximum = 1
         radarChartView.rotationEnabled = false
         radarChartView.legend.enabled = false
     }
@@ -141,12 +156,15 @@ final class SelectFoodstuffViewController: UIViewController {
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         
         baseStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
-        baseStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
-        baseStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+        baseStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        baseStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         baseStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
         baseStackView.addArrangedSubview(radarChartView)
         radarChartView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
+        
+        baseStackView.addArrangedSubview(collectionView)
+        collectionView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.28).isActive = true
         
         view.addSubview(selectFoodstuffView)
         selectFoodstuffView.backgroundColor = .white
@@ -154,31 +172,6 @@ final class SelectFoodstuffViewController: UIViewController {
         selectFoodstuffView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         selectFoodstuffView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.33).isActive = true
         selectFoodstuffView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-    }
-}
-
-final class SelectedFoodstuffCollectionViewDataSource: NSObject, RxCollectionViewDataSourceType, UICollectionViewDataSource {
-    typealias Element = [Foodstuff]
-    var items: Element = []
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = UICollectionViewCell()
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, observedEvent: Event<[Foodstuff]>) {
-        Binder<Element>(self) { dataSource, element in
-            dataSource.items = element
-            collectionView.reloadData()
-        }.on(observedEvent)
     }
 }
 
@@ -195,37 +188,5 @@ extension SelectFoodstuffViewController {
             radarChartData.setValueFormatter(DataSetValueFormatter())
             me.radarChartView.data = radarChartData
         }
-    }
-}
-
-struct SelectedFoodstuffCollectionViewLayout {
-    static func create() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout { (sectionIndex, _) -> NSCollectionLayoutSection? in
-            let size = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .fractionalHeight(1))
-            let item = NSCollectionLayoutItem(layoutSize: size)
-            let groupSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(0.3),
-                heightDimension: .fractionalWidth(0.36))
-            let group = NSCollectionLayoutGroup.horizontal(
-                layoutSize: groupSize,
-                subitem: item,
-                count: 1)
-            group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10)
-            let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 20, trailing: 16)
-            section.orthogonalScrollingBehavior = .continuous
-            let sectionHeaderSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .absolute(50))
-            let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
-                layoutSize: sectionHeaderSize,
-                elementKind: UICollectionView.elementKindSectionHeader,
-                alignment: .top)
-            section.boundarySupplementaryItems = [sectionHeader]
-            return section
-        }
-        return layout
     }
 }

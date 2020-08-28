@@ -32,23 +32,24 @@ final class SelectFoodstuffViewModel {
             }
         
         radarChartDataSet = selectedFoodStuffsRelay
-            .map { foodstuff in
+            .map { foodstuffs in
+                let nutorientBalance = model.calculateNutorientBalance(selected: foodstuffs)
                 let radarChartDataSet = RadarChartDataSet(entries: [
-                    RadarChartDataEntry(value: 210),
-                    RadarChartDataEntry(value: 60.0),
-                    RadarChartDataEntry(value: 150.0),
-                    RadarChartDataEntry(value: 150.0),
-                    RadarChartDataEntry(value: 160.0),
+                    RadarChartDataEntry(value: nutorientBalance.lipid),
+                    RadarChartDataEntry(value: nutorientBalance.sugariness),
+                    RadarChartDataEntry(value: nutorientBalance.protein),
+                    RadarChartDataEntry(value: nutorientBalance.vitamin),
+                    RadarChartDataEntry(value: nutorientBalance.mineral),
                 ])
-//                radarChartDataSet.fillcolo
-//                radarChartDataSet
                 radarChartDataSet.label = nil
                 return radarChartDataSet
             }
         
         selectFoodstuffSubject
             .subscribe(onNext: { [weak self] foodstuff in
-                self?.selectedFoodStuffsRelay.accept(self?.selectedFoodStuffsRelay.value ?? [] + [foodstuff])
+                var newValue = self!.selectedFoodStuffsRelay.value
+                newValue.append(foodstuff)
+                self?.selectedFoodStuffsRelay.accept(newValue)
             })
             .disposed(by: disposeBag)
         

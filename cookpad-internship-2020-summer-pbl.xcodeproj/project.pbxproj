@@ -33,6 +33,9 @@
 		C16E17C924F768C6005EED57 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E17C824F768C6005EED57 /* UIView.swift */; };
 		C16E17CB24F773EE005EED57 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E17CA24F773EE005EED57 /* CardView.swift */; };
 		C1AFACD724F877DB00FA9393 /* ChartFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AFACD624F877DB00FA9393 /* ChartFormatters.swift */; };
+		C1AFACD924F886FC00FA9393 /* SelectedFoodstuffCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AFACD824F886FC00FA9393 /* SelectedFoodstuffCollectionViewDataSource.swift */; };
+		C1AFACDB24F8883000FA9393 /* SelectedFoodstuffCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AFACDA24F8883000FA9393 /* SelectedFoodstuffCollectionViewLayout.swift */; };
+		C1E96B9124F8AD6A00F56010 /* Nutorient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E96B9024F8AD6A00F56010 /* Nutorient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -77,6 +80,9 @@
 		C16E17C824F768C6005EED57 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		C16E17CA24F773EE005EED57 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C1AFACD624F877DB00FA9393 /* ChartFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartFormatters.swift; sourceTree = "<group>"; };
+		C1AFACD824F886FC00FA9393 /* SelectedFoodstuffCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFoodstuffCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		C1AFACDA24F8883000FA9393 /* SelectedFoodstuffCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFoodstuffCollectionViewLayout.swift; sourceTree = "<group>"; };
+		C1E96B9024F8AD6A00F56010 /* Nutorient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutorient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +170,8 @@
 				C16C8EC724F6568E003D3FDC /* SelectFoodstuffViewController.swift */,
 				C16C8EE924F65B95003D3FDC /* SelectFoodstuffViewModel.swift */,
 				C16E17B924F7472A005EED57 /* SelectFoodstuffModel.swift */,
+				C1AFACD824F886FC00FA9393 /* SelectedFoodstuffCollectionViewDataSource.swift */,
+				C1AFACDA24F8883000FA9393 /* SelectedFoodstuffCollectionViewLayout.swift */,
 			);
 			path = SelectFoodstuff;
 			sourceTree = "<group>";
@@ -207,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				C16E17B724F744E2005EED57 /* Foodstuff.swift */,
+				C1E96B9024F8AD6A00F56010 /* Nutorient.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -343,10 +352,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C16E17CB24F773EE005EED57 /* CardView.swift in Sources */,
+				C1AFACDB24F8883000FA9393 /* SelectedFoodstuffCollectionViewLayout.swift in Sources */,
 				C1AFACD724F877DB00FA9393 /* ChartFormatters.swift in Sources */,
 				C16E17C924F768C6005EED57 /* UIView.swift in Sources */,
+				C1E96B9124F8AD6A00F56010 /* Nutorient.swift in Sources */,
 				C16E17B224F7441E005EED57 /* FeedBackGenerator.swift in Sources */,
 				C16E17C624F75F5F005EED57 /* FoodstuffView.swift in Sources */,
+				C1AFACD924F886FC00FA9393 /* SelectedFoodstuffCollectionViewDataSource.swift in Sources */,
 				C16E17BC24F74B28005EED57 /* AppColor.swift in Sources */,
 				C16E17C124F7537C005EED57 /* SelectFoodstuffView.swift in Sources */,
 				C16E17BA24F7472A005EED57 /* SelectFoodstuffModel.swift in Sources */,

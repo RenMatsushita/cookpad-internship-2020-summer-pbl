@@ -12,15 +12,8 @@ struct Foodstuff: Equatable {
     let id: String = UUID().uuidString
     let name: String
     let imageName: String
-    let gramWeight: String
-    let mineral: Float
-    let vitamin: Float
-    // 脂質
-    let lipid: Float
-    // 糖質
-    let sugariness: Float
-    // タンパク質
-    let protein: Float
+    let gramWeight: Float
+    let nutorient: Nutorient
     let genre: FoodGenre
     
     enum FoodGenre {
