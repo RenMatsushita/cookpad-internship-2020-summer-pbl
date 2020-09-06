@@ -1,4 +1,4 @@
-# Cook Select
+# CookSelect
 
 ## setup
 ```
